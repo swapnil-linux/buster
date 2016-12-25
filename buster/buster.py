@@ -126,8 +126,8 @@ def main():
         def remove_v_tag_in_css_and_html(text):
             modified_text = re.sub(r"%3Fv=[\d|\w]+\.css", "", text)
             modified_text = re.sub(r".js%3Fv=[\d|\w]+", ".js", modified_text)
-            modified_text = re.sub(r".woff%3Fv=[\d|\w]+", ".woff", modified_text)
-            modified_text = re.sub(r".ttf%3Fv=[\d|\w]+", ".ttf", modified_text)
+            modified_text = re.sub(r".woff%3[\d|\w]+", ".woff", modified_text)
+            modified_text = re.sub(r".ttf%3[\d|\w]+", ".ttf", modified_text)
 
             modified_text = re.sub(r"css\.html", "css", modified_text)
             modified_text = re.sub(r"png\.html", "png", modified_text)
