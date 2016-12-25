@@ -46,7 +46,8 @@ The Installation
 
 Installing Buster is easy with pip:
 
-    $ pip install buster
+    $ pip install git+git@github.com:raccoonyy/buster.git#egg=buster
+
 
 You'll then have the wonderful ``buster`` command available.
 
