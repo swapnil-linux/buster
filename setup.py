@@ -19,7 +19,6 @@ setup(
         'GitPython==2.1.1',
         'async==0.6.2',
         'docopt==0.6.1',
-        'gitdb==2.2.0',
         'pyquery==1.2.17',
         'smmap==2.1.1',
         'pyquery==1.2.8',
