@@ -1,4 +1,4 @@
-GitPython==0.3.2.RC1
+GitPython==2.1.1
 async==0.6.1
 docopt==0.6.1
 gitdb==0.5.4
