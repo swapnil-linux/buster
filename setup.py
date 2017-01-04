@@ -21,6 +21,5 @@ setup(
         'docopt==0.6.1',
         'pyquery==1.2.17',
         'smmap2==2.0.1',
-        'pyquery==1.2.8',
     ]
 )
