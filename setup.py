@@ -20,7 +20,7 @@ setup(
         'async==0.6.2',
         'docopt==0.6.1',
         'pyquery==1.2.17',
-        'smmap==2.1.1',
+        'smmap2==2.0.1',
         'pyquery==1.2.8',
     ]
 )
