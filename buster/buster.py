@@ -102,6 +102,8 @@ def main():
         # remove query string since Ghost 0.4
         file_regex = re.compile(r'.*?(\?.*)')
         bad_file_regex = re.compile(r'.+\.[0-9]{1,2}$')
+        static_page_regex = re.compile(r"^([\w-]+)$")
+
         for root, dirs, filenames in os.walk(static_path):
             for filename in filenames:
                 if file_regex.match(filename):
@@ -111,11 +113,25 @@ def main():
                 if bad_file_regex.match(filename):
                     os.remove(os.path.join(root, filename))
 
+                # if we're inside static_path or static_path/tag, rename
+                # extension-less files to filename.html
+                if (root == static_path or root == os.path.join(static_path, 'tag')) and static_page_regex.match(filename):
+                    newname = filename + ".html"
+                    newpath = os.path.join(root, newname)
+                    try:
+                        os.remove(newpath)
+                    except OSError:
+                        pass
+                    shutil.move(os.path.join(root, filename), newpath)
+
         # remove superfluous "index.html" from relative hyperlinks found in text
         abs_url_regex = re.compile(r'^(?:[a-z]+:)?//', flags=re.IGNORECASE)
         bad_url_regex = bad_file_regex
 
         def fixLinks(text, parser):
+            if text == '':
+                return ''
+
             d = PyQuery(bytes(bytearray(text, encoding='utf-8')), parser=parser)
             for element in d('a, link'):
                 e = PyQuery(element)
