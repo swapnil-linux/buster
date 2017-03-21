@@ -43,6 +43,7 @@ def main():
     else:
         github_url = None
 
+    domain = arguments['--domain']
     if arguments['generate']:
         command = ("wget "
                    "--level=0 "               # set level to infinitive
@@ -53,23 +54,23 @@ def main():
                    "--directory-prefix {1} "  # download contents to static/ folder
                    "--no-host-directories "   # don't create domain named folder
                    "--restrict-file-name=unix "  # don't escape query string
-                   "{0}").format(arguments['--domain'], static_path)
+                   "{0}").format(domain, static_path)
         os.system(command)
 
         # copy sitemap files since Ghost 0.5.7
         # from https://github.com/joshgerdes/buster/blob/f28bb10fc9522b8b1b1a74d8b74865562d9d5f9e/buster/buster.py
         base_command = "wget --convert-links --page-requisites --no-parent --directory-prefix {1} --no-host-directories --restrict-file-name=unix {0}/{2}"
-        command = base_command.format(arguments['--domain'], static_path, "sitemap.xsl")
+        command = base_command.format(domain, static_path, "sitemap.xsl")
         os.system(command)
-        command = base_command.format(arguments['--domain'], static_path, "sitemap.xml")
+        command = base_command.format(domain, static_path, "sitemap.xml")
         os.system(command)
-        command = base_command.format(arguments['--domain'], static_path, "sitemap-pages.xml")
+        command = base_command.format(domain, static_path, "sitemap-pages.xml")
         os.system(command)
-        command = base_command.format(arguments['--domain'], static_path, "sitemap-posts.xml")
+        command = base_command.format(domain, static_path, "sitemap-posts.xml")
         os.system(command)
-        command = base_command.format(arguments['--domain'], static_path, "sitemap-authors.xml")
+        command = base_command.format(domain, static_path, "sitemap-authors.xml")
         os.system(command)
-        command = base_command.format(arguments['--domain'], static_path, "sitemap-tags.xml")
+        command = base_command.format(domain, static_path, "sitemap-tags.xml")
         os.system(command)
 
         # remove query string since Ghost 0.4
