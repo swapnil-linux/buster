@@ -31,6 +31,11 @@ from git import Repo
 from pyquery import PyQuery
 
 
+def mkdir_p(path):
+    if not os.path.exists(path):
+        os.makedirs(path)
+
+
 def main():
     arguments = docopt(__doc__, version='0.1.3')
     if arguments['--dir'] is not None:
@@ -72,6 +77,27 @@ def main():
         os.system(command)
         command = base_command.format(domain, static_path, "sitemap-tags.xml")
         os.system(command)
+
+        def pullRss(path):
+            if path is None:
+                baserssdir = os.path.join(static_path, "rss")
+                mkdir_p(baserssdir)
+                command = ("wget "
+                           "--output-document=" + baserssdir + "/feed.rss "
+                           "{0}" + '/rss/').format(domain)
+                os.system(command)
+            else:
+                for feed in os.listdir(os.path.join(static_path, path)):
+                    rsspath = os.path.join(path, feed, "rss")
+                    rssdir = os.path.join(static_path, 'rss', rsspath)
+                    mkdir_p(rssdir)
+                    command = ("wget "
+                               "--output-document=" + rssdir + "/index.html "
+                               "{0}/" + rsspath).format(domain)
+                    os.system(command)
+
+        pullRss("tag")
+        pullRss("author")
 
         # remove query string since Ghost 0.4
         file_regex = re.compile(r'.*?(\?.*)')
