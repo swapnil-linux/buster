@@ -74,15 +74,19 @@ def main():
 
         # remove query string since Ghost 0.4
         file_regex = re.compile(r'.*?(\?.*)')
+        bad_file_regex = re.compile(r'.+\.[0-9]{1,2}$')
         for root, dirs, filenames in os.walk(static_path):
             for filename in filenames:
                 if file_regex.match(filename):
                     newname = re.sub(r'\?.*', '', filename)
                     print "Rename", filename, "=>", newname
                     os.rename(os.path.join(root, filename), os.path.join(root, newname))
+                if bad_file_regex.match(filename):
+                    os.remove(os.path.join(root, filename))
 
         # remove superfluous "index.html" from relative hyperlinks found in text
         abs_url_regex = re.compile(r'^(?:[a-z]+:)?//', flags=re.IGNORECASE)
+        bad_url_regex = bad_file_regex
 
         def fixLinks(text, parser):
             d = PyQuery(bytes(bytearray(text, encoding='utf-8')), parser=parser)
@@ -98,6 +102,10 @@ def main():
                     new_href = re.sub(r'index\.html\#$', '', new_href)
                     e.attr('href', new_href)
                     print "\t", href, "=>", new_href
+                if backed_url_regex.search(href):
+                    new_href = re.sub(r'(.+)\.[0-9]{1,2}$', r'\1', href)
+                    e.attr('href', new_href)
+                    print "\t FIX! ", href, "=>", new_href
             if parser == 'html':
                 return "<!DOCTYPE html>\n<html>" + d.html(method='html').encode('utf8') + "</html>"
             return "<!DOCTYPE html>\n<html>" + d.__unicode__().encode('utf8') + "</html>"
