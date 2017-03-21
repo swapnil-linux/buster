@@ -140,11 +140,13 @@ def main():
                 if href is None:
                     continue
                 if (not abs_url_regex.search(href)) or ('/rss/' in href):
-                    new_href = re.sub(r'rss/$', 'rss/index.rss', href)
-                    new_href = re.sub(r'index\.html$', '', new_href)
-                    new_href = re.sub(r'index\.html\#$', '', new_href)
-                    e.attr('href', new_href)
-                    print "\t", href, "=>", new_href
+                    new_href = re.sub(r"/([\w-]+)$", r"/\1.html", href)
+                    new_href = re.sub(r"^([\w-]+)$", r"\1.html", new_href)
+                    if href != new_href:
+                        e.attr('href', new_href)
+                        print "\t", href, "=>", new_href
+
+                href = e.attr('href')
                 if bad_url_regex.search(href):
                     new_href = re.sub(r'(.+)\.[0-9]{1,2}$', r'\1', href)
                     e.attr('href', new_href)
