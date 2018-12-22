@@ -183,10 +183,10 @@ def main():
             return modified_text
 
         def trans_local_domain_to_github_pages(text):
-            modified_text = text.replace('localhost:2374', github_url)
-            modified_text = text.replace('pngg','png')
-            modified_text = text.replace('pngng','png')
-            modified_text = text.replace('pngpng','png')
+            modified_text = text.replace('localhost:2374', 'https://blog.ramith.fyi/static')
+            modified_text = modified_text.replace('pngg','png')
+            modified_text = modified_text.replace('pngng','png')
+            modified_text = modified_text.replace('pngpng','png')
             return modified_text
 
         for root, dirs, filenames in os.walk(static_path):
