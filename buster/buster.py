@@ -196,8 +196,8 @@ def main():
                     with open(filepath) as f:
                         filetext = f.read()
                     print "fixing local domain in ", filepath
-                    newtext = trans_local_domain_to_github_pages(filetext)
-                    newtext = remove_v_tag_in_css_and_html(newtext)
+                    newtext = remove_v_tag_in_css_and_html(filetext) #remove_v_tag_in_css_and_html
+                    newtext = trans_local_domain_to_github_pages(newtext)
                     with open(filepath, 'w') as f:
                         f.write(newtext)
 
