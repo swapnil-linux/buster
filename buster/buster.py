@@ -189,7 +189,7 @@ def main():
             modified_text = modified_text.replace('pngpng','png')
 
             modified_text = modified_text.replace('PNGG','PNG')
-            modified_text = modified_text.replace('PNGPG','PNG')
+            modified_text = modified_text.replace('PNGNG','PNG')
             modified_text = modified_text.replace('PNGPNG','PNG')
 
 
