@@ -192,13 +192,14 @@ def main():
             modified_text = modified_text.replace('PNGPG','PNG')
             modified_text = modified_text.replace('PNGPNG','PNG')
 
+
             modified_text = modified_text.replace('jpgg','jpg')
             modified_text = modified_text.replace('jpgpg','jpg')
             modified_text = modified_text.replace('jpgjpg','jpg')
 
-            modified_text = modified_text.replace('jpegg','jpg')
-            modified_text = modified_text.replace('jpegpg','jpg')
-            modified_text = modified_text.replace('jpegpeg','jpg')
+            modified_text = modified_text.replace('jpegg','jpeg')
+            modified_text = modified_text.replace('jpegeg','jpeg')
+            modified_text = modified_text.replace('jpegpeg','jpeg')
             return modified_text
 
         for root, dirs, filenames in os.walk(static_path):
