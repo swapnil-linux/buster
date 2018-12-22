@@ -183,7 +183,7 @@ def main():
             return modified_text
 
         def trans_local_domain_to_github_pages(text):
-            modified_text = text.replace('localhost:2374', github_url+'/static')
+            modified_text = text.replace('localhost:2374', github_url)
             modified_text = text.replace('pngg','png')
             modified_text = text.replace('pngng','png')
             modified_text = text.replace('pngpng','png')
