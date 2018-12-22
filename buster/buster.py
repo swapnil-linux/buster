@@ -184,7 +184,7 @@ def main():
 
         def trans_local_domain_to_github_pages(text):
             modified_text = text.replace('http://blog.ramith.fyi', 'https://blog.ramith.fyi/static')
-            modified_text = text.replace('localhost:2374', 'https://blog.ramith.fyi/static')
+            modified_text = modified_text.replace('localhost:2374', 'https://blog.ramith.fyi/static')
             modified_text = modified_text.replace('pngg','png')
             modified_text = modified_text.replace('pngng','png')
             modified_text = modified_text.replace('pngpng','png')
