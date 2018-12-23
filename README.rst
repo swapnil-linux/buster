@@ -4,7 +4,7 @@
 Important Notes!
 ^^^^^^^^^^^^^^^^
 
-Follow these steps to install my edited version of buster, 
+Follow these steps to install my edited version of buster (for Ghost 2.9.1), This fixes a url issue
 
 Step1
 '''''
