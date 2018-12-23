@@ -5,8 +5,10 @@ Important Notes!
 ^^^^^^^^^^^^^^^^
 
 There is an issue with Buster when using with ghost 2.9.1, so i had to
-manually fix it. to remove buster sudo pip uninstall buster to install
-my version of buster sudo pip install
+manually fix it. 
+
+to remove buster -> sudo pip uninstall buster 
+to install my version of buster -> sudo pip install
 git+https://github.com/ramithuh/buster.git
 
 The FIX ->
