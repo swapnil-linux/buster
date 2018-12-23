@@ -1,3 +1,32 @@
+|Build Status|
+
+
+Important Notes!
+^^^^^^^^^^^^^^^^
+
+Follow these steps to install my edited version of buster (for Ghost 2.9.1), This fixes a url issue
+
+Step1
+'''''
+Remove the existing buster module if you have.
+
+.. code:: sh
+
+   $sudo pip uninstall buster 
+
+Step 2
+''''''
+
+Install my version
+
+.. code:: sh
+
+   $sudo pip install git+https://github.com/ramithuh/buster.git
+   
+.. |Build Status| image:: https://travis-ci.org/joemccann/dillinger.svg?branch=master
+   :target: https://travis-ci.org/joemccann/dillinger
+   
+   
 Buster
 ======
 
@@ -46,7 +75,7 @@ The Installation
 
 Installing Buster is easy with pip:
 
-    $ pip install git+git@github.com:raccoonyy/buster.git#egg=buster
+    $ sudo pip install git+https://github.com/ramithuh/buster.git
 
 
 You'll then have the wonderful ``buster`` command available.
@@ -87,7 +116,7 @@ Buster?
 
 Inspired by THE GhostBusters.
 
-.. figure:: http://upload.wikimedia.org/wikipedia/en/c/c7/Ghostbusters_cover.png
+.. figure:: https://upload.wikimedia.org/wikipedia/en/3/32/Ghostbusters_2016_film_poster.png
    :alt: Ghost Buster Movie Poster
 
    Ghost Buster Movie
