@@ -186,7 +186,7 @@ def main():
             #modified_text = text.replace('http://blog.ramith.fyi', 'https://blog.ramith.fyi/static')
             #modified_text = modified_text.replace('localhost:2374', 'https://blog.ramith.fyi/static')
 
-            modified_text = text.replace('localhost:2368',github_url)
+            modified_text = text.replace('localhost:2368',github_url) #you might need to do changes as above.
 
             modified_text = modified_text.replace('pngg','png')
             modified_text = modified_text.replace('pngng','png')
