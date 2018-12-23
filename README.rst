@@ -2,16 +2,25 @@
 |Build Status|
 
 Important Notes!
+
 ^^^^^^^^^^^^^^^^
+Follow these steps to install my edited version of buster, ##### Step 1
+Remove the existing buster module if you have.
 
-There is an issue with Buster when using with ghost 2.9.1, so i had to
-manually fix it. 
+.. code:: sh
 
-to remove buster -> sudo pip uninstall buster 
-to install my version of buster -> sudo pip install
-git+https://github.com/ramithuh/buster.git
+   $sudo pip uninstall buster 
 
-The FIX ->
+Step 2
+''''''
+
+Install my version
+
+.. code:: sh
+
+   $sudo pip install git+https://github.com/ramithuh/buster.git
+   
+what does the FIX do? ->
 ^^^^^^^^^^
 
    modified_text = modified_text.replace(‘pngg’,‘png’) modified_text =
