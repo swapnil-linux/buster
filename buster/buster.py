@@ -35,7 +35,7 @@ def mkdir_p(path):
 
 
 def main():
-    arguments = docopt(__doc__, version='0.1.3')
+    arguments = docopt(__doc__, version='0.1.4')
     if arguments['--dir'] is not None:
         static_path = arguments['--dir']
     else:
