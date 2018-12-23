@@ -1,49 +1,4 @@
-|Build Status|
 
-
-Important Notes!
-
-^^^^^^^^^^^^^^^^
-Follow these steps to install my edited version of buster, ##### Step 1
-Remove the existing buster module if you have.
-
-.. code:: sh
-
-   $sudo pip uninstall buster 
-
-Step 2
-''''''
-
-Install my version
-
-.. code:: sh
-
-   $sudo pip install git+https://github.com/ramithuh/buster.git
-   
-what does the FIX do? ->
-^^^^^^^^^^
-
-   modified_text = modified_text.replace(‘pngg’,‘png’) modified_text =
-   modified_text.replace(‘pngng’,‘png’) modified_text =
-   modified_text.replace(‘pngpng’,‘png’)
-
-   modified_text = modified_text.replace(‘PNGG’,‘PNG’) modified_text =
-   modified_text.replace(‘PNGNG’,‘PNG’) modified_text =
-   modified_text.replace(‘PNGPNG’,‘PNG’)
-
-   modified_text = modified_text.replace(‘jpgg’,‘jpg’) modified_text =
-   modified_text.replace(‘jpgpg’,‘jpg’) modified_text =
-   modified_text.replace(‘jpgjpg’,‘jpg’)
-
-   modified_text = modified_text.replace(‘jpegg’,‘jpeg’) modified_text =
-   modified_text.replace(‘jpegeg’,‘jpeg’) modified_text =
-   modified_text.replace(‘jpegpeg’,‘jpeg’)
-
-.. |Build Status| image:: https://travis-ci.org/joemccann/dillinger.svg?branch=master
-   :target: https://travis-ci.org/joemccann/dillinger
-   
-   
-   
 Buster
 ======
 
