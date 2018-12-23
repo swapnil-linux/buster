@@ -1,33 +1,38 @@
 
-[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
+|Build Status|
 
-#### Important Notes! 
- - There is an issue with Buster when using with ghost 2.9.1, so i had to manually fix it. 
- - to remove buster **sudo pip uninstall buster**
- - to install my version of buster 
-**sudo pip install git+https://github.com/ramithuh/buster.git**
+Important Notes!
+^^^^^^^^^^^^^^^^
 
-#### The FIX -> 
+There is an issue with Buster when using with ghost 2.9.1, so i had to
+manually fix it. to remove buster sudo pip uninstall buster to install
+my version of buster sudo pip install
+git+https://github.com/ramithuh/buster.git
 
->           modified_text = modified_text.replace('pngg','png')
-            modified_text = modified_text.replace('pngng','png')
-            modified_text = modified_text.replace('pngpng','png')
+The FIX ->
+^^^^^^^^^^
 
-            modified_text = modified_text.replace('PNGG','PNG')
-            modified_text = modified_text.replace('PNGNG','PNG')
-            modified_text = modified_text.replace('PNGPNG','PNG')
+   modified_text = modified_text.replace(‘pngg’,‘png’) modified_text =
+   modified_text.replace(‘pngng’,‘png’) modified_text =
+   modified_text.replace(‘pngpng’,‘png’)
 
+   modified_text = modified_text.replace(‘PNGG’,‘PNG’) modified_text =
+   modified_text.replace(‘PNGNG’,‘PNG’) modified_text =
+   modified_text.replace(‘PNGPNG’,‘PNG’)
 
-            modified_text = modified_text.replace('jpgg','jpg')
-            modified_text = modified_text.replace('jpgpg','jpg')
-            modified_text = modified_text.replace('jpgjpg','jpg')
+   modified_text = modified_text.replace(‘jpgg’,‘jpg’) modified_text =
+   modified_text.replace(‘jpgpg’,‘jpg’) modified_text =
+   modified_text.replace(‘jpgjpg’,‘jpg’)
 
-            modified_text = modified_text.replace('jpegg','jpeg')
-            modified_text = modified_text.replace('jpegeg','jpeg')
-            modified_text = modified_text.replace('jpegpeg','jpeg')
+   modified_text = modified_text.replace(‘jpegg’,‘jpeg’) modified_text =
+   modified_text.replace(‘jpegeg’,‘jpeg’) modified_text =
+   modified_text.replace(‘jpegpeg’,‘jpeg’)
 
-
-
+.. |Build Status| image:: https://travis-ci.org/joemccann/dillinger.svg?branch=master
+   :target: https://travis-ci.org/joemccann/dillinger
+   
+   
+   
 Buster
 ======
 
