@@ -1,7 +1,7 @@
 """Ghost Buster. Static site generator for Ghost.
 Usage:
   buster.py setup [--gh-repo=<repo-url>] [--dir=<path>]
-  buster.py generate [--domain=<local-address>] [--dir=<path>] [--github-id=<github-id>]
+  buster.py generate [--domain=<local-address>] [--dir=<path>] [--new-domain=<remote-address>]
   buster.py preview [--dir=<path>]
   buster.py deploy [--dir=<path>]
   buster.py add-domain <domain-name> [--dir=<path>]
@@ -23,6 +23,7 @@ import fnmatch
 import shutil
 import SocketServer
 import SimpleHTTPServer
+import codecs
 from docopt import docopt
 from time import gmtime, strftime
 from git import Repo
@@ -169,6 +170,19 @@ def main():
                 newtext = fixLinks(filetext, parser)
                 with open(filepath, 'w') as f:
                     f.write(newtext)
+                    
+        if arguments['--new-domain']:
+            filetypes = ['*.html', '*.xml', '*.xsl', 'robots.txt']
+            for root, dirs, filenames in os.walk(static_path):
+                for extension in filetypes:
+                    for filename in fnmatch.filter(filenames, extension):
+                        filepath = os.path.join(root, filename)
+                        with codecs.open(filepath, encoding='utf8') as f:
+                            filetext = f.read()
+                            print "fixing localhost reference in ", filepath
+                            newtext = re.sub(r"%s" % arguments['--domain'], arguments['--new-domain'], filetext)
+                        with codecs.open(filepath, 'w', 'utf-8-sig') as f:
+                            f.write(newtext)
 
         def remove_v_tag_in_css_and_html(text):
             modified_text = re.sub(r"%3Fv=[\d|\w]+\.css", "", text)
